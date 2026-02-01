@@ -1,23 +1,23 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>For Prathika 💕</title>
+<title>For Tharun 💖</title>
 
 <!-- Confetti -->
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-<!-- Google Font -->
+<!-- Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
   body {
     margin: 0;
     height: 100vh;
-    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+    background: linear-gradient(-45deg, #ff758c, #ff7eb3, #ffd3e2, #ffc3a0);
     background-size: 400% 400%;
-    animation: gradientBG 10s ease infinite;
+    animation: bg 10s ease infinite;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,71 +25,72 @@
     overflow: hidden;
   }
 
-  @keyframes gradientBG {
+  @keyframes bg {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
 
   .card {
-    backdrop-filter: blur(12px);
-    background: rgba(255, 255, 255, 0.85);
-    padding: 30px 20px;
-    border-radius: 24px;
+    background: rgba(255,255,255,0.88);
+    backdrop-filter: blur(14px);
+    border-radius: 26px;
+    padding: 32px 24px;
     width: 90%;
-    max-width: 360px;
-    height: 320px;
+    max-width: 380px;
     text-align: center;
-    box-shadow: 0 0 40px rgba(255, 77, 109, 0.35);
+    box-shadow: 0 20px 45px rgba(255, 77, 109, 0.35);
     position: relative;
   }
 
   h1 {
-    color: #ff4d6d;
+    color: #ff3f6c;
     font-size: 24px;
-    margin-bottom: 8px;
-    animation: pulse 1.8s infinite;
+    margin-bottom: 10px;
+    animation: heartbeat 1.8s infinite;
   }
 
-  @keyframes pulse {
+  @keyframes heartbeat {
     0% { transform: scale(1); }
-    50% { transform: scale(1.08); }
+    25% { transform: scale(1.08); }
+    40% { transform: scale(1); }
+    60% { transform: scale(1.08); }
     100% { transform: scale(1); }
   }
 
   p {
     font-size: 16px;
     color: #333;
+    line-height: 1.6;
   }
 
   button {
-    padding: 12px 24px;
+    padding: 12px 26px;
     font-size: 16px;
-    border-radius: 16px;
+    border-radius: 18px;
     border: none;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
   }
 
   #yes {
-    background: #ff4d6d;
+    background: linear-gradient(135deg, #ff4d6d, #ff758c);
     color: white;
   }
 
   #yes:hover {
-    transform: scale(1.08);
-    box-shadow: 0 8px 20px rgba(255, 77, 109, 0.5);
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(255, 77, 109, 0.5);
   }
 
   #no {
-    background: #eee;
+    background: #f1f1f1;
     color: #444;
     position: absolute;
     left: 55%;
-    top: 70%;
+    top: 72%;
   }
 
-  /* Shake animation 😈 */
   @keyframes shake {
     0% { transform: translate(0); }
     25% { transform: translate(-6px, 6px); }
@@ -102,17 +103,17 @@
     animation: shake 0.15s infinite;
   }
 
-  .scream {
+  .tease {
     position: absolute;
-    color: #ff1e56;
-    font-weight: bold;
     font-size: 14px;
-    animation: fadeOut 0.6s forwards;
+    font-weight: bold;
+    color: #ff1e56;
+    animation: fade 0.7s forwards;
   }
 
-  @keyframes fadeOut {
+  @keyframes fade {
     from { opacity: 1; }
-    to { opacity: 0; transform: translateY(-15px); }
+    to { opacity: 0; transform: translateY(-18px); }
   }
 </style>
 </head>
@@ -120,13 +121,17 @@
 <body>
 
 <div class="card" id="card">
-  <h1>Prathika 💕</h1>
-  <p>Will you be my Valentine? 🥰🌸</p>
+  <h1>Tharun Pasupuleti 💖</h1>
+  <p>
+    Hey you 🥰<br>
+    I was wondering…<br><br>
+    Will you be my Valentine? 🌹✨
+  </p>
 
   <br><br>
 
-  <button id="yes" onclick="yesClicked()">Yes 💖</button>
-  <button id="no" onmouseover="noChaos()" ontouchstart="noChaos()">No 😈</button>
+  <button id="yes" onclick="yesClicked()">Yes 💘</button>
+  <button id="no" onmouseover="noMove()" ontouchstart="noMove()">No 🙈</button>
 </div>
 
 <script>
@@ -136,7 +141,7 @@
     const osc = audioCtx.createOscillator();
     const gain = audioCtx.createGain();
     osc.frequency.value = freq;
-    osc.type = "square";
+    osc.type = "sine";
     osc.connect(gain);
     gain.connect(audioCtx.destination);
     osc.start();
@@ -145,27 +150,27 @@
   }
 
   function yesClicked() {
-    playSound(800, 0.2);
+    playSound(880, 0.2);
 
     confetti({
-      particleCount: 250,
-      spread: 120,
+      particleCount: 300,
+      spread: 130,
       origin: { y: 0.6 }
     });
 
     document.getElementById("card").innerHTML = `
-      <h1>IT’S A YES 💖✨</h1>
+      <h1>YAYYY 💖🥹</h1>
       <p>
-        Prathika 🌷<br><br>
-        You didn’t just say yes,<br>
-        you made my whole day 🥹💫<br><br>
-        Happy Valentine’s 💌🌹
+        Tharun 🌷<br><br>
+        You just made my heart<br>
+        do happy somersaults 💫💘<br><br>
+        Can’t wait for our Valentine’s 💌✨
       </p>
     `;
   }
 
-  function noChaos() {
-    playSound(200, 0.15);
+  function noMove() {
+    playSound(220, 0.15);
 
     const noBtn = document.getElementById("no");
     const card = document.getElementById("card");
@@ -178,18 +183,18 @@
     noBtn.style.left = Math.random() * maxX + "px";
     noBtn.style.top = Math.random() * maxY + "px";
 
-    const scream = document.createElement("div");
-    scream.className = "scream";
-    scream.innerText = "NO IS NOT AN OPTION 😤💥";
-    scream.style.left = noBtn.style.left;
-    scream.style.top = noBtn.style.top;
+    const tease = document.createElement("div");
+    tease.className = "tease";
+    tease.innerText = "You can’t say no 😌💖";
+    tease.style.left = noBtn.style.left;
+    tease.style.top = noBtn.style.top;
 
-    card.appendChild(scream);
+    card.appendChild(tease);
 
     setTimeout(() => {
-      scream.remove();
+      tease.remove();
       noBtn.classList.remove("shake");
-    }, 600);
+    }, 700);
   }
 </script>
 
