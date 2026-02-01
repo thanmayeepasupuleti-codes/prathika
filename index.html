@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For Prathika 💕</title>
+
+<!-- Confetti -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+  }
+
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .card {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.85);
+    padding: 30px 20px;
+    border-radius: 24px;
+    width: 90%;
+    max-width: 360px;
+    height: 320px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(255, 77, 109, 0.35);
+    position: relative;
+  }
+
+  h1 {
+    color: #ff4d6d;
+    font-size: 24px;
+    margin-bottom: 8px;
+    animation: pulse 1.8s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+  }
+
+  p {
+    font-size: 16px;
+    color: #333;
+  }
+
+  button {
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  #yes {
+    background: #ff4d6d;
+    color: white;
+  }
+
+  #yes:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(255, 77, 109, 0.5);
+  }
+
+  #no {
+    background: #eee;
+    color: #444;
+    position: absolute;
+    left: 55%;
+    top: 70%;
+  }
+
+  /* Shake animation 😈 */
+  @keyframes shake {
+    0% { transform: translate(0); }
+    25% { transform: translate(-6px, 6px); }
+    50% { transform: translate(6px, -6px); }
+    75% { transform: translate(-6px, -6px); }
+    100% { transform: translate(6px, 6px); }
+  }
+
+  .shake {
+    animation: shake 0.15s infinite;
+  }
+
+  .scream {
+    position: absolute;
+    color: #ff1e56;
+    font-weight: bold;
+    font-size: 14px;
+    animation: fadeOut 0.6s forwards;
+  }
+
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; transform: translateY(-15px); }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+  <h1>Prathika 💕</h1>
+  <p>Will you be my Valentine? 🥰🌸</p>
+
+  <br><br>
+
+  <button id="yes" onclick="yesClicked()">Yes 💖</button>
+  <button id="no" onmouseover="noChaos()" ontouchstart="noChaos()">No 😈</button>
+</div>
+
+<script>
+  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+  function playSound(freq, duration) {
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.frequency.value = freq;
+    osc.type = "square";
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start();
+    gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+    osc.stop(audioCtx.currentTime + duration);
+  }
+
+  function yesClicked() {
+    playSound(800, 0.2);
+
+    confetti({
+      particleCount: 250,
+      spread: 120,
+      origin: { y: 0.6 }
+    });
+
+    document.getElementById("card").innerHTML = `
+      <h1>IT’S A YES 💖✨</h1>
+      <p>
+        Prathika 🌷<br><br>
+        You didn’t just say yes,<br>
+        you made my whole day 🥹💫<br><br>
+        Happy Valentine’s 💌🌹
+      </p>
+    `;
+  }
+
+  function noChaos() {
+    playSound(200, 0.15);
+
+    const noBtn = document.getElementById("no");
+    const card = document.getElementById("card");
+
+    noBtn.classList.add("shake");
+
+    const maxX = card.clientWidth - noBtn.offsetWidth;
+    const maxY = card.clientHeight - noBtn.offsetHeight;
+
+    noBtn.style.left = Math.random() * maxX + "px";
+    noBtn.style.top = Math.random() * maxY + "px";
+
+    const scream = document.createElement("div");
+    scream.className = "scream";
+    scream.innerText = "NO IS NOT AN OPTION 😤💥";
+    scream.style.left = noBtn.style.left;
+    scream.style.top = noBtn.style.top;
+
+    card.appendChild(scream);
+
+    setTimeout(() => {
+      scream.remove();
+      noBtn.classList.remove("shake");
+    }, 600);
+  }
+</script>
+
+</body>
+</html>
