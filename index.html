@@ -1,202 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>For Tharun 💖</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Tharun 💖</title>
 
-<!-- Confetti -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-<!-- Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-<style>
-  body {
-    margin: 0;
-    height: 100vh;
-    background: linear-gradient(-45deg, #ff758c, #ff7eb3, #ffd3e2, #ffc3a0);
-    background-size: 400% 400%;
-    animation: bg 10s ease infinite;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Poppins', sans-serif;
-    overflow: hidden;
-  }
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(-45deg, #ff758c, #ff7eb3, #ffd3e2, #ffc3a0);
+      background-size: 400% 400%;
+      animation: bg 10s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+    }
 
-  @keyframes bg {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
+    @keyframes bg {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-  .card {
-    background: rgba(255,255,255,0.88);
-    backdrop-filter: blur(14px);
-    border-radius: 26px;
-    padding: 32px 24px;
-    width: 90%;
-    max-width: 380px;
-    text-align: center;
-    box-shadow: 0 20px 45px rgba(255, 77, 109, 0.35);
-    position: relative;
-  }
+    .card {
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(14px);
+      border-radius: 26px;
+      padding: 32px 24px;
+      width: 90%;
+      max-width: 380px;
+      text-align: center;
+      box-shadow: 0 20px 45px rgba(255, 77, 109, 0.35);
+    }
 
-  h1 {
-    color: #ff3f6c;
-    font-size: 24px;
-    margin-bottom: 10px;
-    animation: heartbeat 1.8s infinite;
-  }
+    h1 {
+      color: #ff3f6c;
+      font-size: 24px;
+      margin-bottom: 16px;
+      animation: heartbeat 1.8s infinite;
+    }
 
-  @keyframes heartbeat {
-    0% { transform: scale(1); }
-    25% { transform: scale(1.08); }
-    40% { transform: scale(1); }
-    60% { transform: scale(1.08); }
-    100% { transform: scale(1); }
-  }
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      25% { transform: scale(1.08); }
+      40% { transform: scale(1); }
+      60% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
 
-  p {
-    font-size: 16px;
-    color: #333;
-    line-height: 1.6;
-  }
+    p {
+      font-size: 18px;
+      color: #333;
+    }
 
-  button {
-    padding: 12px 26px;
-    font-size: 16px;
-    border-radius: 18px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
+    button {
+      padding: 12px 26px;
+      font-size: 16px;
+      border-radius: 18px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      margin: 10px;
+    }
 
-  #yes {
-    background: linear-gradient(135deg, #ff4d6d, #ff758c);
-    color: white;
-  }
+    #yes {
+      background: linear-gradient(135deg, #ff4d6d, #ff758c);
+      color: white;
+    }
 
-  #yes:hover {
-    transform: scale(1.1);
-    box-shadow: 0 10px 25px rgba(255, 77, 109, 0.5);
-  }
-
-  #no {
-    background: #f1f1f1;
-    color: #444;
-    position: absolute;
-    left: 55%;
-    top: 72%;
-  }
-
-  @keyframes shake {
-    0% { transform: translate(0); }
-    25% { transform: translate(-6px, 6px); }
-    50% { transform: translate(6px, -6px); }
-    75% { transform: translate(-6px, -6px); }
-    100% { transform: translate(6px, 6px); }
-  }
-
-  .shake {
-    animation: shake 0.15s infinite;
-  }
-
-  .tease {
-    position: absolute;
-    font-size: 14px;
-    font-weight: bold;
-    color: #ff1e56;
-    animation: fade 0.7s forwards;
-  }
-
-  @keyframes fade {
-    from { opacity: 1; }
-    to { opacity: 0; transform: translateY(-18px); }
-  }
-</style>
+    #no {
+      background: #f1f1f1;
+      color: #444;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="card" id="card">
-  <h1>Tharun Pasupuleti 💖</h1>
-  <p>
-    Hey you 🥰<br>
-    I was wondering…<br><br>
-    Will you be my Valentine? 🌹✨
-  </p>
+  <div class="card" id="card">
+    <h1>Tharun Pasupuleti 💖</h1>
+    <p>Will you be my Valentine? 💖</p>
 
-  <br><br>
+    <br><br>
 
-  <button id="yes" onclick="yesClicked()">Yes 💘</button>
-  <button id="no" onmouseover="noMove()" ontouchstart="noMove()">No 🙈</button>
-</div>
+    <button id="yes" onclick="yesClicked()">Yes 💘</button>
+    <button id="no" onclick="noClicked()">No 🙈</button>
+  </div>
 
-<script>
-  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  <script>
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    let yesScale = 1;   // 👈 scale tracker
 
-  function playSound(freq, duration) {
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.frequency.value = freq;
-    osc.type = "sine";
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-    osc.start();
-    gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
-    osc.stop(audioCtx.currentTime + duration);
-  }
+    function playSound(freq, duration) {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.frequency.value = freq;
+      osc.type = "sine";
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+      osc.stop(audioCtx.currentTime + duration);
+    }
 
-  function yesClicked() {
-    playSound(880, 0.2);
+    function noClicked() {
+      if (audioCtx.state === "suspended") audioCtx.resume();
+      playSound(220, 0.15);
 
-    confetti({
-      particleCount: 300,
-      spread: 130,
-      origin: { y: 0.6 }
-    });
+      const noBtn = document.getElementById("no");
+      const yesBtn = document.getElementById("yes");
 
-    document.getElementById("card").innerHTML = `
-      <h1>YAYYY 💖🥹</h1>
-      <p>
-        Tharun 🌷<br><br>
-        You just made my heart<br>
-        do happy somersaults 💫💘<br><br>
-        Can’t wait for our Valentine’s 💌✨
-      </p>
-    `;
-  }
+      // Change NO text once
+      noBtn.innerText = "baby ala kadhu 🥺💔";
 
-  function noMove() {
-    playSound(220, 0.15);
+      // Increase YES size every click
+      yesScale += 0.12;
+      yesBtn.style.transform = `scale(${yesScale})`;
+      yesBtn.style.boxShadow = "0 14px 35px rgba(255, 77, 109, 0.6)";
+    }
 
-    const noBtn = document.getElementById("no");
-    const card = document.getElementById("card");
+    function yesClicked() {
+  if (audioCtx.state === "suspended") audioCtx.resume();
+  playSound(880, 0.2);
 
-    noBtn.classList.add("shake");
+  confetti({
+    particleCount: 300,
+    spread: 130,
+    origin: { y: 0.6 }
+  });
 
-    const maxX = card.clientWidth - noBtn.offsetWidth;
-    const maxY = card.clientHeight - noBtn.offsetHeight;
+  document.getElementById("card").innerHTML = `
+    <h1>YAYYY 💖🥹</h1>
 
-    noBtn.style.left = Math.random() * maxX + "px";
-    noBtn.style.top = Math.random() * maxY + "px";
+    <img 
+      src="./the-the-office.gif"
+      alt="Excited"
+      width="260"
+      style="border-radius:16px; margin:14px 0;"
+    >
 
-    const tease = document.createElement("div");
-    tease.className = "tease";
-    tease.innerText = "You can’t say no 😌💖";
-    tease.style.left = noBtn.style.left;
-    tease.style.top = noBtn.style.top;
+    <p>Can’t wait to be your Valentine 💌💋💋💋</p>
+  `;
+}
 
-    card.appendChild(tease);
-
-    setTimeout(() => {
-      tease.remove();
-      noBtn.classList.remove("shake");
-    }, 700);
-  }
-</script>
+  </script>
 
 </body>
 </html>
